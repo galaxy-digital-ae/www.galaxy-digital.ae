@@ -1,0 +1,54 @@
+# Template
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: www-build
+labels:
+  template: www-build
+
+parameters:
+  - name: "NAMESPACE"
+    required: false
+  - name: "ENVIRONMENT"
+    required: true
+  - name: "APP_NAME"
+    required: true
+
+objects:
+  
+  # BuildConfig 
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      name: ${APP_NAME}
+    labels:
+      app: ${APP_NAME}
+    spec:
+      failedBuildsHistoryLimit: 1
+      successfulBuildsHistoryLimit: 1
+      output:
+        to:
+          kind: ImageStreamTag
+          name: ${APP_NAME}:${ENVIRONMENT}
+      postCommit: {}
+      resources:
+        limits:
+          memory: "1Gi"
+      runPolicy: Serial
+      source:
+        binary:
+          contextDir: .
+      strategy:
+        dockerStrategy:
+          dockerfilePath: Dockerfile
+
+  # ImageStream
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      name: ${APP_NAME}
+      labels:
+        app: ${APP_NAME}
+    spec:
+      lookupPolicy:
+        local: true

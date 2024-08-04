@@ -1,0 +1,40 @@
+name: Deploy on OpenShift
+run-name: "Deploy: ${{ inputs.envType }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      envType:
+        type: choice
+        description: 'Select target environment'
+        required: true
+        default: 'test'
+        options:
+        - test
+        - prod
+
+jobs:
+  deploy:
+#   runs-on: ['atmos-aws-arc-runner-set']
+    environment: ${{ inputs.envType }}
+    steps:
+
+      # Bootstrap the runner for OpenShift
+      - uses: redhat-actions/openshift-tools-installer@v1
+	with:
+	  oc: "4"
+	  helm: "latest"
+      - shell: bash
+	run: oc login ${{ secrets.OPENSHIFT_API_ENDPOINT }} --token=${{ secrets.OPENSHIFT_TOKEN }}
+      - shell: bash
+	run: oc project ${{ env.OPENSHIFT_PROJECT }}
+
+      # Deploy templates
+      - uses: actions/checkout@v4
+      - run: |
+          oc process -f openshift/templates/build.yml --param-file openshift/params/${{ inputs.envType }}.ini --ignore-unknown-parameters | oc apply -f -
+          oc process -f openshift/templates/runtime.yml --param-file openshift/params/${{ inputs.envType }}.ini --ignore-unknown-parameters | oc apply -f -
+
+      - shell: bash
+	run: |
+	  oc start-build www --from-dir=. --wait --request-timeout="600s"
