@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: galaxy-digital
+  namespace: galaxy-digital
+spec:
+  to:
+    kind: Service
+    name: galaxy-digital-svc
+  host: hoolia.energy

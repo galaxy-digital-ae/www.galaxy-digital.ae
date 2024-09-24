@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galaxy-digital
+  namespace: galaxy-digital
+  labels:
+    app: galaxy-digital
+spec: # specification for deployment resource
+  replicas: 1
+  selector:
+    matchLabels:
+      app: galaxy-digital
+  template: # blueprint for Pod
+    metadata:
+      labels:
+        app: galaxy-digital
+    spec: # specification for Pod
+      serviceAccountName: galaxy-digital-sa
+      containers:
+      - name: galaxy-digital
+        image: wordpress:latest
+        ports:
+        - containerPort: 8080
+          name: galaxy-digital
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql.galaxy-digital.svc.cluster.local
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-root-password
+        - name: WORDPRESS_DB_USER
+          value: wordpress
+        - name: WORDPRESS_DEBUG
+          value: "1"
+        volumeMounts:
+        - name: wordpress-persistent-storage
+          mountPath: /var/www/html
+        - name: php-config-volume
+          mountPath: /usr/local/etc/php/php.ini
+          subPath: php.ini
+      volumes:
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: galaxy-digital-pvc
+      - name: php-config-volume
+        configMap:
+          name: php-config-galaxy-digital
+          items:
+            - key: php.ini
+              path: php.ini
