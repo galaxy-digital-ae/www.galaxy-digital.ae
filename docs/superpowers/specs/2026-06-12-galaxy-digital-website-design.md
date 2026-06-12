@@ -110,7 +110,15 @@ astro.config.mjs
 6. **Security** — audits + SecOps/monitoring; secure-by-default posture.
 7. **Platform** — sovereign private cloud, MEA·EU regions, data residency, the constellation/region visuals.
 8. **Approach** — engagement model: Assess → Architect → Automate → Operate.
-9. **About / Team** — company story + four senior engineers with photos & LinkedIn. Profiles provided: linkedin.com/in/agolis, /in/samuelterburg, /in/mayank-s-596315104, /in/amitkatyayana. Exact display names, titles and bios to be confirmed by the user (do not fabricate); link each card to its profile. "Senior-only, no offshore handoff."
+9. **About / Team** — company story + five senior engineers, real headshots (`assets/team/*.jpg`) + LinkedIn. "Senior-only, no offshore handoff."
+
+   | Name | Title | LinkedIn | Photo |
+   |------|-------|----------|-------|
+   | Sam | Principal Cloud-Native Architect | /in/samuelterburg | sam.jpg |
+   | Amit | AI-Native Engineer | /in/amitkatyayana | amit.jpg |
+   | Mayank | Site Reliability Engineer | /in/mayank-s-596315104 | mayank.jpg |
+   | Andrej | AI & Cloud-Native Engineer | /in/agolis | andrej.jpg |
+   | Samira | Security Specialist | — | samira.jpg |
 10. **Contact** — contact form (static-friendly: mailto or form endpoint TBD), UAE details, LinkedIn.
 
 Plus a light **Legal** page (Privacy/Imprint). Every page uses `BaseLayout` (shared nav/footer/SEO).
@@ -136,7 +144,7 @@ Plus a light **Legal** page (Privacy/Imprint). Every page uses `BaseLayout` (sha
 ## 7. Content & Honesty Constraints
 
 - New company: **no fake client logos, testimonials, or client counts.** Credibility comes from technology/partner stack, capability metrics, and the senior team.
-- Team members are real (LinkedIn provided); use names/roles, link to their profiles. Photos: placeholder silhouettes until real photos supplied — flagged, not faked.
+- Team members are real; use the provided names/titles, real headshots (`assets/team/`), and link to LinkedIn profiles where available (Samira has no profile link yet).
 - Region claims (MEA/Africa/EU) reflect stated hosting footprint.
 - All copy is drafted by us in this build; user reviews and can revise.
 
