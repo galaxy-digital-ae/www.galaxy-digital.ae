@@ -126,54 +126,19 @@ git commit -m "chore: scaffold Astro+Tailwind site, remove WordPress skeleton"
 
 ---
 
-### Task 2: Design tokens (Tailwind config + global.css)
+### Task 2: Design tokens (Tailwind v4 `@theme` in global.css)
+
+**Stack note:** This project uses **Tailwind CSS v4** (CSS-first config). There is **no `tailwind.config.mjs`**. Tokens are declared in a `@theme {}` block inside `src/styles/global.css` (which already contains `@import "tailwindcss";` from Task 1).
 
 **Files:**
-- Modify: `tailwind.config.mjs`
-- Create: `src/styles/global.css`
+- Modify: `src/styles/global.css`
 
-- [ ] **Step 1: Encode tokens in Tailwind config**
+- [ ] **Step 1: Replace global.css with tokens + base + component utilities**
 
-Replace `tailwind.config.mjs` content:
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{astro,html,js,ts,jsx,tsx,md}'],
-  theme: {
-    extend: {
-      colors: {
-        space: '#04060E',
-        bg2: '#0A1020',
-        panel: '#0C1426',
-        line: 'rgba(120,180,240,0.12)',
-        azure: '#1EA3E8',
-        cyan: '#5CC8F7',
-        deep: '#1565D8',
-        signal: '#56D364',
-        txt: '#E9EEFB',
-        mut: '#94A3C4',
-      },
-      fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        sans: ['Inter', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-      },
-      maxWidth: { content: '1180px' },
-      boxShadow: { glow: '0 0 60px rgba(30,163,232,0.22)' },
-      keyframes: {
-        'fade-up': { '0%': { opacity: '0', transform: 'translateY(12px)' }, '100%': { opacity: '1', transform: 'none' } },
-      },
-      animation: { 'fade-up': 'fade-up .6s ease both' },
-    },
-  },
-  plugins: [],
-}
-```
-
-- [ ] **Step 2: Global base styles + fonts + nebula background**
-
-Create `src/styles/global.css`:
+Replace `src/styles/global.css` content:
 ```css
+@import "tailwindcss";
+
 @import '@fontsource/space-grotesk/500.css';
 @import '@fontsource/space-grotesk/600.css';
 @import '@fontsource/space-grotesk/700.css';
@@ -183,9 +148,31 @@ Create `src/styles/global.css`:
 @import '@fontsource/jetbrains-mono/400.css';
 @import '@fontsource/jetbrains-mono/500.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-space: #04060E;
+  --color-bg2: #0A1020;
+  --color-panel: #0C1426;
+  --color-line: rgba(120,180,240,0.12);
+  --color-azure: #1EA3E8;
+  --color-cyan: #5CC8F7;
+  --color-deep: #1565D8;
+  --color-signal: #56D364;
+  --color-txt: #E9EEFB;
+  --color-mut: #94A3C4;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --container-content: 1180px;            /* enables max-w-content */
+  --shadow-glow: 0 0 60px rgba(30,163,232,0.22);
+  --animate-fade-up: fade-up .6s ease both;
+}
+
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: none; }
+}
 
 @layer base {
   html { scroll-behavior: smooth; }
@@ -201,7 +188,7 @@ Create `src/styles/global.css`:
 
 @layer components {
   .container-x { @apply max-w-content mx-auto px-6 md:px-8; }
-  .text-grad { @apply bg-gradient-to-r from-cyan to-azure bg-clip-text text-transparent; }
+  .text-grad { @apply bg-linear-to-r from-cyan to-azure bg-clip-text text-transparent; }
   .hairline { @apply border border-line; }
 }
 
@@ -210,14 +197,13 @@ Create `src/styles/global.css`:
 }
 ```
 
-- [ ] **Step 3: Verify tokens compile**
+- [ ] **Step 2: Resolve the gradient utility name (v4)** — Tailwind v4 renamed `bg-gradient-to-*` to `bg-linear-to-*`. Confirm which name this version (`tailwindcss@^4.1`) emits: temporarily add a test element and build, then `grep` the built CSS in `dist/_astro/*.css` for the gradient rule. Record the working utility name (expected: `bg-linear-to-r` / `bg-linear-to-b`). **Report it** — downstream component tasks must use the confirmed name.
 
-Temporarily set `index.astro` body to `<body class="bg-space"><h1 class="text-grad font-display text-4xl">Galaxy-Digital</h1></body>` and import global.css. Run `npm run build`. Expected: exits 0.
+- [ ] **Step 3: Verify tokens compile and emit** — Temporarily set `index.astro` body to `<body><h1 class="text-grad font-display text-4xl bg-space">Galaxy-Digital</h1></body>`, import `../styles/global.css` in the frontmatter. Run `npm run build` (exit 0). Then confirm the token actually emitted: `grep -o '#1EA3E8\|--color-azure\|linear-gradient' dist/_astro/*.css | head` returns matches (proves the azure token and gradient compiled, not silently dropped).
 
 - [ ] **Step 4: Commit**
-
 ```bash
-git add tailwind.config.mjs src/styles/global.css src/pages/index.astro
+git add src/styles/global.css src/pages/index.astro
 git commit -m "feat: add design tokens (color, type, nebula bg) and global styles"
 ```
 
