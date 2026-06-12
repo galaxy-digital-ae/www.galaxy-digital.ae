@@ -1,0 +1,11 @@
+---
+import type { Member } from '../data/team';
+interface Props { member: Member; }
+const { member } = Astro.props;
+---
+<div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-5">
+  <img src={member.photo} alt={member.name} class="w-full aspect-square object-cover rounded-xl" />
+  <h3 class="mt-4 font-display font-semibold">{member.name}</h3>
+  <p class="text-sm text-cyan">{member.title}</p>
+  {member.linkedin && <a href={member.linkedin} class="mt-2 inline-block text-sm text-mut hover:text-txt">LinkedIn →</a>}
+</div>

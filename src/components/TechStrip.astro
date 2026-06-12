@@ -1,0 +1,9 @@
+---
+const tech = ['Red Hat OpenShift','Kubernetes','Argo CD','Terraform','Ansible','Prometheus'];
+---
+<div class="container-x py-10 border-y border-line">
+  <p class="text-center text-xs uppercase tracking-[0.18em] text-mut">Engineered on the tools we live in</p>
+  <div class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+    {tech.map((t) => <span class="font-mono text-sm text-mut/80">{t}</span>)}
+  </div>
+</div>

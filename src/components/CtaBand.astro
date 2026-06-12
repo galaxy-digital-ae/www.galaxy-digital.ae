@@ -1,0 +1,14 @@
+---
+import Button from './Button.astro';
+interface Props { title?: string; }
+const { title = "Let's build the platform your AI runs on." } = Astro.props;
+---
+<section class="container-x my-24">
+  <div class="rounded-3xl hairline p-10 md:p-16 text-center bg-linear-to-b from-panel to-bg2 shadow-glow">
+    <h2 class="text-3xl md:text-4xl font-display font-semibold tracking-tight">{title}</h2>
+    <div class="mt-8 flex justify-center gap-4">
+      <Button href="/contact">Book a platform review</Button>
+      <Button href="/services" variant="ghost">Explore services</Button>
+    </div>
+  </div>
+</section>
