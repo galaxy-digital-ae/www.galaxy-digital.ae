@@ -1,0 +1,24 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: www
+  namespace: galaxy-digital-web
+  labels:
+    app: galaxy-digital
+  annotations:
+    # cert-manager (openshift-routes) issues/renews a Let's Encrypt cert for this host.
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt
+    cert-manager.io/renew-before: 24h
+spec:
+  host: www.galaxy-digital.ae
+  to:
+    kind: Service
+    name: galaxy-digital
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

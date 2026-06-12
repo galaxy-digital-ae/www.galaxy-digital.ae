@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galaxy-digital
+  namespace: galaxy-digital-web
+  labels:
+    app: galaxy-digital
+  annotations:
+    # Roll the deployment automatically whenever galaxy-digital:latest is rebuilt.
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"galaxy-digital:latest","namespace":"galaxy-digital-web"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web\")].image"}]
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: galaxy-digital
+  template:
+    metadata:
+      labels:
+        app: galaxy-digital
+    spec:
+      containers:
+        - name: web
+          image: image-registry.openshift-image-registry.svc:5000/galaxy-digital-web/galaxy-digital:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
