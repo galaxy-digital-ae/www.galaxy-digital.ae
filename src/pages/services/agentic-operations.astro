@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { pillars } from '../../data/pillars';
+const slug = 'agentic-operations';
+const intro = `Standard GitOps stops at 'declared'. We add an autonomous agentic loop — detect, plan, act, verify — so your platform remediates drift and ships safely without paging a human for every change.`;
+const outcomes: string[] = ['Fewer pages, faster recovery', 'Progressive, SLO-guarded delivery', 'Signed audit trail on every change'];
+const p = pillars.find((x) => x.slug === slug)!;
+---
+<BaseLayout title={p.name} description={p.blurb}>
+  <section class="container-x pt-20 pb-10">
+    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">{p.marketing}</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">{p.name}</h1>
+    <p class="mt-6 text-lg text-mut max-w-2xl">{intro}</p>
+  </section>
+  <section class="container-x py-10 grid md:grid-cols-2 gap-10">
+    <div>
+      <h2 class="text-2xl font-display font-semibold">What you get</h2>
+      <ul class="mt-6 space-y-3">{p.points.map((pt) => <li class="flex gap-3 text-mut"><span class="text-signal">✓</span>{pt}</li>)}</ul>
+    </div>
+    <div>
+      <h2 class="text-2xl font-display font-semibold">Outcomes</h2>
+      <ul class="mt-6 space-y-3">{outcomes.map((o) => <li class="flex gap-3 text-mut"><span class="text-azure">→</span>{o}</li>)}</ul>
+    </div>
+  </section>
+  <CtaBand />
+</BaseLayout>
