@@ -1,6 +1,38 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import TechStrip from '../components/TechStrip.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PillarCard from '../components/PillarCard.astro';
+import Differentiator from '../components/home/Differentiator.astro';
+import PlatformSection from '../components/home/PlatformSection.astro';
+import Engage from '../components/home/Engage.astro';
+import MetricStat from '../components/MetricStat.astro';
+import TeamCard from '../components/TeamCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { pillars } from '../data/pillars';
+import { metrics } from '../data/metrics';
+import { team } from '../data/team';
 ---
-<html lang="en"><head><meta charset="utf-8"><title>Galaxy-Digital</title></head>
-<body class="bg-space"><h1 class="text-grad font-display text-4xl">Galaxy-Digital</h1>
-<div class="container-x hairline shadow-glow max-w-content">probe</div></body></html>
+<BaseLayout>
+  <Hero />
+  <TechStrip />
+  <section class="container-x py-20">
+    <SectionHeading eyebrow="What we do" title="Four pillars, one substrate." sub="Cloud-native and OpenShift run through everything — these are the outcomes we deliver on top." />
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {pillars.map((p) => <PillarCard pillar={p} />)}
+    </div>
+  </section>
+  <Differentiator />
+  <PlatformSection />
+  <Engage />
+  <section class="container-x py-20">
+    <SectionHeading center title="Built to prove it." sub="No vanity client counts — capability you can verify." />
+    <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5">{metrics.map((m) => <MetricStat value={m.value} label={m.label} />)}</div>
+  </section>
+  <section class="container-x py-20">
+    <SectionHeading eyebrow="Who we are" title="Senior-only. No offshore handoff." sub="A small team of practitioners who live and breathe this stack." />
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">{team.map((m) => <TeamCard member={m} />)}</div>
+  </section>
+  <CtaBand />
+</BaseLayout>

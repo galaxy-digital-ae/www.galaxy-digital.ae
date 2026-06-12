@@ -30,6 +30,8 @@
   --animate-fade-up: fade-up .6s ease both;
 }
 
+@source inline("text-cyan text-azure text-signal text-mut text-[#e3b341]");
+
 @keyframes fade-up {
   0%   { opacity: 0; transform: translateY(12px); }
   100% { opacity: 1; transform: none; }
