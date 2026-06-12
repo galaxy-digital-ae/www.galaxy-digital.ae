@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+const steps = [
+  { k: 'Assess', d: 'We map your current platform, delivery workflows, risks and goals — and agree what "good" looks like.' },
+  { k: 'Architect', d: 'We design the sovereign, GitOps-native target state, with security and AI readiness built in from the start.' },
+  { k: 'Automate', d: 'We build the platform as code and layer agentic operations on top — detect, plan, act, verify.' },
+  { k: 'Operate', d: 'We run it autonomously, with humans on the guardrails and a signed audit trail on every change.' },
+];
+---
+<BaseLayout title="Approach" description="Assess → Architect → Automate → Operate. A clear path from today to autonomous.">
+  <section class="container-x pt-20 pb-10">
+    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">How we engage</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">A clear path from today to autonomous.</h1>
+    <p class="mt-6 text-lg text-mut max-w-2xl">Four stages, each producing working software you own. No big-bang — we earn autonomy step by step.</p>
+  </section>
+  <section class="container-x py-10 space-y-4">
+    {steps.map((s, i) => (
+      <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-7 flex gap-6 items-start">
+        <div class="font-display text-2xl font-semibold text-grad">0{i + 1}</div>
+        <div><h3 class="font-display text-xl font-semibold">{s.k}</h3><p class="mt-2 text-mut">{s.d}</p></div>
+      </div>
+    ))}
+  </section>
+  <CtaBand />
+</BaseLayout>
