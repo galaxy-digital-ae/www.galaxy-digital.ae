@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Legal" description="Legal information and privacy notice for Galaxy-Digital.">
+  <section class="container-x pt-20 pb-24 max-w-2xl">
+    <h1 class="text-4xl font-display font-semibold tracking-tight">Legal & Privacy</h1>
+    <div class="mt-8 space-y-6 text-mut">
+      <div><h2 class="text-xl font-display font-semibold text-txt">Company</h2><p class="mt-2">Galaxy-Digital, {site.location}. Contact: <a class="text-azure" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>
+      <div><h2 class="text-xl font-display font-semibold text-txt">Privacy</h2><p class="mt-2">We collect only the information you choose to send us via email or the contact form, and use it solely to respond to your enquiry. We do not sell personal data. To request deletion of your data, email us.</p></div>
+      <div><h2 class="text-xl font-display font-semibold text-txt">Cookies</h2><p class="mt-2">This site is static and uses no tracking cookies.</p></div>
+    </div>
+  </section>
+</BaseLayout>
