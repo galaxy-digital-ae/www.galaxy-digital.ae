@@ -1,1 +1,58 @@
 @import "tailwindcss";
+
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@theme {
+  --color-space: #04060E;
+  --color-bg2: #0A1020;
+  --color-panel: #0C1426;
+  --color-line: rgba(120,180,240,0.12);
+  --color-azure: #1EA3E8;
+  --color-cyan: #5CC8F7;
+  --color-deep: #1565D8;
+  --color-signal: #56D364;
+  --color-txt: #E9EEFB;
+  --color-mut: #94A3C4;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --container-content: 1180px;
+  --shadow-glow: 0 0 60px rgba(30,163,232,0.22);
+  --animate-fade-up: fade-up .6s ease both;
+}
+
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-space text-txt font-sans antialiased;
+    background-image:
+      radial-gradient(900px 520px at 82% -8%, rgba(30,163,232,.16), transparent 60%),
+      radial-gradient(680px 480px at -5% 8%, rgba(92,200,247,.08), transparent 55%);
+    background-attachment: fixed;
+  }
+  h1,h2,h3 { @apply font-display tracking-tight; }
+}
+
+@layer components {
+  .container-x { @apply max-w-content mx-auto px-6 md:px-8; }
+  .text-grad { @apply bg-linear-to-r from-cyan to-azure bg-clip-text text-transparent; }
+  .hairline { @apply border border-line; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
