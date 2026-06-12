@@ -1,0 +1,21 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+const steps = [
+  { k: 'Assess', d: 'We map your platform, workflows and risks.' },
+  { k: 'Architect', d: 'We design the sovereign, GitOps-native target state.' },
+  { k: 'Automate', d: 'We build it as code and layer in agentic operations.' },
+  { k: 'Operate', d: 'We run it — autonomously, with humans on the guardrails.' },
+];
+---
+<section class="container-x py-20">
+  <SectionHeading eyebrow="How we engage" title="A clear path from today to autonomous." />
+  <div class="mt-12 grid md:grid-cols-4 gap-4">
+    {steps.map((s, i) => (
+      <div class="rounded-2xl bg-panel hairline p-6">
+        <div class="font-mono text-xs text-cyan">Step {i + 1}</div>
+        <h3 class="mt-2 font-display text-lg font-semibold">{s.k}</h3>
+        <p class="mt-2 text-sm text-mut">{s.d}</p>
+      </div>
+    ))}
+  </div>
+</section>

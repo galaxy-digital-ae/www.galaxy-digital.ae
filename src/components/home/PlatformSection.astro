@@ -1,0 +1,14 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Constellation from '../Constellation.astro';
+import RegionMap from '../RegionMap.astro';
+---
+<section class="container-x py-20">
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <SectionHeading eyebrow="Where we run" title="Sovereign private cloud, in your region." sub="One OpenShift core, every capability orbiting it — hosted across the Middle East, Africa and Europe for data residency and control." />
+      <div class="mt-8"><RegionMap /></div>
+    </div>
+    <Constellation />
+  </div>
+</section>

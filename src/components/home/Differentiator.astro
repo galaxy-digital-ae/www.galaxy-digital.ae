@@ -1,0 +1,22 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+const loop = [
+  { k: 'Detect', d: 'Agents watch GitOps state and telemetry for drift, risk and anomalies.' },
+  { k: 'Plan', d: 'A remediation is proposed against policy — within human-defined guardrails.' },
+  { k: 'Act', d: 'Change rolls out progressively: canary, SLO guard, promote.' },
+  { k: 'Verify', d: 'Outcome is checked and the audit trail is signed — automatically.' },
+];
+---
+<section class="container-x py-20">
+  <SectionHeading eyebrow="Why us" title="We make OpenShift run itself." sub="Standard GitOps stops at 'declared'. We add an agentic loop on top — humans set intent, agents execute and reconcile." />
+  <div class="mt-12 grid md:grid-cols-4 gap-4">
+    {loop.map((s, i) => (
+      <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-6">
+        <div class="font-mono text-xs text-cyan">0{i + 1}</div>
+        <h3 class="mt-2 font-display text-lg font-semibold">{s.k}</h3>
+        <p class="mt-2 text-sm text-mut">{s.d}</p>
+      </div>
+    ))}
+  </div>
+  <p class="mt-6 text-sm text-mut">Humans set intent, agents execute — the human-and-machine partnership at the core of everything we run.</p>
+</section>
