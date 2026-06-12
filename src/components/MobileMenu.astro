@@ -1,0 +1,12 @@
+---
+import { nav } from '../data/site';
+---
+<details class="md:hidden relative">
+  <summary class="list-none cursor-pointer p-2 text-mut" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </summary>
+  <div class="absolute right-0 mt-2 w-52 rounded-xl bg-panel hairline p-2 shadow-glow">
+    {nav.map((i) => <a href={i.href} class="block px-3 py-2 rounded-lg text-sm text-mut hover:text-txt hover:bg-white/5">{i.label}</a>)}
+    <a href="/contact" class="block px-3 py-2 rounded-lg text-sm text-azure font-semibold">Book a review →</a>
+  </div>
+</details>

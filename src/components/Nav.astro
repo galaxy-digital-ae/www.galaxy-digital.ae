@@ -1,0 +1,18 @@
+---
+import { nav } from '../data/site';
+import Button from './Button.astro';
+import MobileMenu from './MobileMenu.astro';
+---
+<header class="sticky top-0 z-50 backdrop-blur-md bg-space/70 border-b border-line">
+  <nav class="container-x flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2.5">
+      <img src="/logo-full.jpg" alt="Galaxy-Digital" class="h-8 w-8 rounded-md object-cover" />
+      <span class="font-display font-semibold tracking-tight">Galaxy-Digital</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      {nav.map((i) => <a href={i.href} class="text-sm text-mut hover:text-txt transition">{i.label}</a>)}
+      <Button href="/contact" class="!px-4 !py-2">Book a review</Button>
+    </div>
+    <MobileMenu />
+  </nav>
+</header>

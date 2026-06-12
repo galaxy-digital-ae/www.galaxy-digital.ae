@@ -1,0 +1,32 @@
+---
+import { site, nav, socials } from '../data/site';
+import { pillars } from '../data/pillars';
+---
+<footer class="border-t border-line mt-24">
+  <div class="container-x py-14 grid gap-10 md:grid-cols-4">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <img src="/logo-full.jpg" alt="Galaxy-Digital" class="h-8 w-8 rounded-md object-cover" />
+        <span class="font-display font-semibold">Galaxy-Digital</span>
+      </div>
+      <p class="mt-4 text-sm text-mut max-w-xs">{site.tagline}</p>
+    </div>
+    <div>
+      <h3 class="text-xs uppercase tracking-wider text-mut font-semibold">Services</h3>
+      <ul class="mt-4 space-y-2">{pillars.map((p) => <li><a class="text-sm text-mut hover:text-txt" href={`/services/${p.slug}`}>{p.name}</a></li>)}</ul>
+    </div>
+    <div>
+      <h3 class="text-xs uppercase tracking-wider text-mut font-semibold">Company</h3>
+      <ul class="mt-4 space-y-2">{nav.map((i) => <li><a class="text-sm text-mut hover:text-txt" href={i.href}>{i.label}</a></li>)}<li><a class="text-sm text-mut hover:text-txt" href="/legal">Legal</a></li></ul>
+    </div>
+    <div>
+      <h3 class="text-xs uppercase tracking-wider text-mut font-semibold">Contact</h3>
+      <ul class="mt-4 space-y-2 text-sm text-mut">
+        <li>{site.location}</li>
+        <li><a class="hover:text-txt" href={`mailto:${site.email}`}>{site.email}</a></li>
+        {socials.map((s) => <li><a class="hover:text-txt" href={s.href}>{s.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="container-x py-6 border-t border-line text-xs text-mut">© 2026 Galaxy-Digital. All rights reserved.</div>
+</footer>
