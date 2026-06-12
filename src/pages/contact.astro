@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, socials } from '../data/site';
+---
+<BaseLayout title="Contact" description="Book a platform review with Galaxy-Digital.">
+  <section class="container-x pt-20 pb-10 grid lg:grid-cols-2 gap-12">
+    <div>
+      <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Contact</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight">Book a platform review.</h1>
+      <p class="mt-6 text-lg text-mut max-w-md">Tell us where you are and where you want to get to. We'll come back with a concrete next step.</p>
+      <div class="mt-8 space-y-2 text-mut">
+        <p>{site.location}</p>
+        <p><a class="text-azure hover:brightness-110" href={`mailto:${site.email}`}>{site.email}</a></p>
+        {socials.map((s) => <p><a class="hover:text-txt" href={s.href}>{s.label} →</a></p>)}
+      </div>
+    </div>
+    <form action={`mailto:${site.email}`} method="post" enctype="text/plain" class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-7 space-y-4">
+      <div><label class="text-sm text-mut">Name</label><input name="name" required class="mt-1 w-full rounded-lg bg-space hairline px-3 py-2.5 text-txt focus:border-azure outline-none" /></div>
+      <div><label class="text-sm text-mut">Work email</label><input name="email" type="email" required class="mt-1 w-full rounded-lg bg-space hairline px-3 py-2.5 text-txt focus:border-azure outline-none" /></div>
+      <div><label class="text-sm text-mut">What are you building?</label><textarea name="message" rows="4" class="mt-1 w-full rounded-lg bg-space hairline px-3 py-2.5 text-txt focus:border-azure outline-none"></textarea></div>
+      <button type="submit" class="w-full rounded-xl px-5 py-3 text-sm font-semibold text-white bg-linear-to-r from-azure to-deep hover:brightness-110 shadow-glow">Send</button>
+      <p class="text-xs text-mut">Opens your mail client. Prefer email? Write to {site.email}.</p>
+    </form>
+  </section>
+</BaseLayout>
