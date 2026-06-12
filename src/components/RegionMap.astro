@@ -1,0 +1,12 @@
+---
+import { regions } from '../data/regions';
+---
+<div class="grid sm:grid-cols-3 gap-4">
+  {regions.map((r) => (
+    <div class="rounded-2xl bg-panel hairline p-6">
+      <div class="text-xs uppercase tracking-[0.14em] text-cyan font-semibold">Region</div>
+      <div class="mt-2 font-display text-lg font-semibold">{r.group}</div>
+      <div class="mt-1 text-sm text-mut">{r.nodes.join(' · ')}</div>
+    </div>
+  ))}
+</div>

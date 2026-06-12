@@ -1,0 +1,26 @@
+---
+const lines = [
+  '<span class="text-cyan">▸ agent</span> <span class="text-mut">watch gitops/prod</span>',
+  '<span class="text-mut"># drift detected on</span> <span class="text-azure">ingress-controller</span>',
+  '<span class="text-[#e3b341]">⚡ planning</span> <span class="text-mut">remediation…</span>',
+  '<span class="text-azure">→</span> rollout canary <span class="text-cyan">10%</span> · SLO guard <span class="text-signal">ok</span>',
+  '<span class="text-azure">→</span> promote <span class="text-cyan">100%</span> · audit signed',
+  '<span class="text-signal">✓ reconciled</span> <span class="text-mut">in 38s — no human paged</span>',
+];
+---
+<div class="rounded-2xl bg-[#050A14] hairline overflow-hidden shadow-glow">
+  <div class="flex items-center gap-2 px-4 py-3 border-b border-line">
+    <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+    <span class="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+    <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+    <span class="ml-2 font-mono text-xs text-mut">galaxy-agent · reconcile</span>
+  </div>
+  <div class="p-5 font-mono text-[13px] leading-[1.9]" id="term">
+    {lines.map((l, i) => <div class="term-line opacity-0" style={`--i:${i}`} set:html={l} />)}
+  </div>
+</div>
+<style>
+  .term-line { animation: reveal .35s ease forwards; animation-delay: calc(var(--i) * .5s + .3s); }
+  @keyframes reveal { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .term-line { opacity: 1 !important; animation: none !important; } }
+</style>

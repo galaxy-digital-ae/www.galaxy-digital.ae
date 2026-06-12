@@ -1,0 +1,21 @@
+---
+const nodes = [
+  { label: 'OpenShift', tag: 'CORE', x: 50, y: 38, core: true },
+  { label: 'GitOps', tag: 'BUILD', x: 14, y: 20 },
+  { label: 'Agentic Ops', tag: 'RUN', x: 78, y: 22 },
+  { label: 'SecOps', tag: 'SECURE', x: 18, y: 76 },
+  { label: 'AI Layer', tag: 'SCALE', x: 74, y: 74 },
+];
+---
+<div class="relative h-[340px] rounded-2xl hairline overflow-hidden" style="background:radial-gradient(60% 60% at 50% 40%,rgba(30,163,232,.16),transparent 70%)">
+  <svg class="absolute inset-0 w-full h-full" aria-hidden="true">
+    {nodes.filter(n => !n.core).map(n => (
+      <line x1="50%" y1="38%" x2={`${n.x}%`} y2={`${n.y}%`} stroke="rgba(30,163,232,.4)" stroke-width="1.5" stroke-dasharray="4 4" />
+    ))}
+  </svg>
+  {nodes.map(n => (
+    <div class={`absolute -translate-x-1/2 -translate-y-1/2 rounded-xl px-3 py-2 text-xs font-semibold bg-linear-to-b from-[#10203a] to-[#0a1326] ${n.core ? 'border border-azure shadow-glow' : 'hairline'}`} style={`left:${n.x}%;top:${n.y}%`}>
+      <span class="block text-[9px] tracking-[0.1em] text-cyan">{n.tag}</span>{n.label}
+    </div>
+  ))}
+</div>
