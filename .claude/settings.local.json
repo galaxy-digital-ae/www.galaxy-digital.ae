@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/sterburg/.claude/plugins/**)",
+      "Read(//home/sterburg/.claude/plugins/marketplaces/**)",
+      "Bash(claude plugin *)"
+    ]
+  }
+}
