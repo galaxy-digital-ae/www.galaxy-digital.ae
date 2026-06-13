@@ -6,10 +6,12 @@ import CardGrid from '../components/CardGrid.astro';
 import Card from '../components/Card.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CtaBand from '../components/CtaBand.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import { audience, whatWeBuild, hosting } from '../data/customBuild';
 ---
 <BaseLayout title="Custom Build" description="We build your sovereign OpenShift private cloud and autonomous operations as a custom implementation.">
   <PageHero eyebrow="Custom Build" title="Your sovereign OpenShift platform — custom-built." lead="We build the platform, automate its operations, and hand you a sovereign private cloud that runs itself. Consultancy first — you own what we build." />
+  <TrustStrip />
 
   <Section>
     <SectionHeading eyebrow="Who it's for" title="Built for platform-serious organisations." />
