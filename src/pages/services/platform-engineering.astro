@@ -3,8 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
 const slug = 'platform-engineering';
-const intro = `We design and build private-cloud OpenShift platforms you actually own — defined as code, hosted in your region, and ready for AI workloads from day one.`;
-const outcomes: string[] = ['A platform you own, not rent', 'Reproducible from Git — no snowflakes', 'Ready for in-region data residency'];
+const intro = `We build sovereign OpenShift private clouds you own — from bare metal to the AI-hosting substrate, defined entirely as code and ready for AI workloads from day one.`;
+const outcomes: string[] = ['A platform you own, not rent', 'Reproducible from Git — no snowflakes', 'In-region data residency, ready for AI'];
+const stack: { group: string; items: string }[] = [
+  { group: 'Cluster builds', items: 'Bare-metal (ZTP) · IaaS · HostedClusters · multi-cluster via ACM' },
+  { group: 'Platform services', items: 'GitOps · Service Mesh · OpenShift Virtualization · ODF/Ceph · networking' },
+  { group: 'AI-hosting substrate', items: 'OpenShift AI (RHOAI) · vLLM/LLM serving · GPU enablement' },
+];
 const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
@@ -21,6 +26,17 @@ const p = pillars.find((x) => x.slug === slug)!;
     <div>
       <h2 class="text-2xl font-display font-semibold">Outcomes</h2>
       <ul class="mt-6 space-y-3">{outcomes.map((o) => <li class="flex gap-3 text-mut"><span class="text-azure">→</span>{o}</li>)}</ul>
+    </div>
+  </section>
+  <section class="container-x py-10">
+    <h2 class="text-2xl font-display font-semibold">The platform stack we build</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      {stack.map((s) => (
+        <div class="rounded-2xl bg-panel hairline p-6">
+          <div class="text-xs uppercase tracking-[0.14em] text-cyan font-semibold">{s.group}</div>
+          <p class="mt-2 text-sm text-mut">{s.items}</p>
+        </div>
+      ))}
     </div>
   </section>
   <CtaBand />
