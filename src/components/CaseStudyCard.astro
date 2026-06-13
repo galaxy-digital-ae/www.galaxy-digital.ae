@@ -1,0 +1,15 @@
+---
+import type { CaseStudy } from '../data/caseStudies';
+interface Props { study: CaseStudy; }
+const { study } = Astro.props;
+---
+<article class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-7">
+  <span class="text-xs font-semibold uppercase tracking-[0.14em] text-cyan">{study.tag}</span>
+  <h3 class="mt-2 text-xl font-display font-semibold">{study.title}</h3>
+  <div class="mt-5 space-y-4 text-sm">
+    <p><span class="text-mut">Challenge — </span>{study.challenge}</p>
+    <p><span class="text-mut">What we built — </span>{study.built}</p>
+    <p><span class="text-azure">Outcome — </span>{study.outcome}</p>
+  </div>
+  {study.note && <p class="mt-5 text-xs text-mut italic">{study.note}</p>}
+</article>
