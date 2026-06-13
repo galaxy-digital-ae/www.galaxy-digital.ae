@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { site } from '../data/site';
 interface Props { title?: string; description?: string; }
 const { title, description = site.tagline } = Astro.props;
@@ -25,5 +26,6 @@ const fullTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.
   <Nav />
   <main><slot /></main>
   <Footer />
+  <WhatsAppButton />
 </body>
 </html>

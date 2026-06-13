@@ -3,8 +3,13 @@ export const site = {
   domain: 'www.galaxy-digital.ae',
   tagline: 'Sovereign private cloud. Autonomous operations. AI-native by design.',
   email: 'hello@galaxy-digital.ae',
+  phone: '+971 50 771 0305',
+  phoneHref: 'tel:+971507710305',
+  whatsapp: 'https://wa.me/971507710305?text=Hi%20Galaxy-Digital%2C%20I%27d%20like%20to%20talk%20about%20our%20platform.',
   location: 'United Arab Emirates',
 };
+// Direct LinkedIn message to Sam (Principal Cloud-Native Architect)
+export const messageSam = { label: 'Message Sam on LinkedIn', href: 'https://www.linkedin.com/in/samuelterburg/' };
 export const nav = [
   { label: 'Custom Build', href: '/custom-build' },
   { label: 'Services', href: '/services' },

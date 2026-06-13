@@ -24,6 +24,8 @@ import { pillars } from '../data/pillars';
       <ul class="mt-4 space-y-2 text-sm text-mut">
         <li>{site.location}</li>
         <li><a class="hover:text-txt" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><a class="hover:text-txt" href={site.phoneHref}>{site.phone}</a></li>
+        <li><a class="hover:text-txt" href={site.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         {socials.map((s) => <li><a class="hover:text-txt" href={s.href}>{s.label}</a></li>)}
       </ul>
     </div>

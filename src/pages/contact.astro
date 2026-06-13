@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, socials } from '../data/site';
+import { site, socials, messageSam } from '../data/site';
 ---
 <BaseLayout title="Contact" description="Book a platform review with Galaxy-Digital.">
   <section class="container-x pt-20 pb-10 grid lg:grid-cols-2 gap-12">
@@ -11,6 +11,9 @@ import { site, socials } from '../data/site';
       <div class="mt-8 space-y-2 text-mut">
         <p>{site.location}</p>
         <p><a class="text-azure hover:brightness-110" href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><a class="hover:text-txt" href={site.phoneHref}>{site.phone}</a></p>
+        <p><a class="text-[#25D366] hover:brightness-110" href={site.whatsapp} target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a></p>
+        <p><a class="hover:text-txt" href={messageSam.href} target="_blank" rel="noopener noreferrer">{messageSam.label} →</a></p>
         {socials.map((s) => <p><a class="hover:text-txt" href={s.href}>{s.label} →</a></p>)}
       </div>
     </div>
