@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
+import { opsDomains } from '../../data/opsDomains';
 const slug = 'agentic-operations';
-const intro = `Standard GitOps stops at 'declared'. We add an autonomous agentic loop — detect, plan, act, verify — so your platform remediates drift and ships safely without paging a human for every change.`;
-const outcomes: string[] = ['Fewer pages, faster recovery', 'Progressive, SLO-guarded delivery', 'Signed audit trail on every change'];
+const intro = `The routine Day-2 operations that consume a platform team — run as autonomous agentic workflows. Humans set intent and own the guardrails; agents detect, plan, act and verify.`;
 const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
@@ -13,15 +13,18 @@ const p = pillars.find((x) => x.slug === slug)!;
     <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">{p.name}</h1>
     <p class="mt-6 text-lg text-mut max-w-2xl">{intro}</p>
   </section>
-  <section class="container-x py-10 grid md:grid-cols-2 gap-10">
-    <div>
-      <h2 class="text-2xl font-display font-semibold">What you get</h2>
-      <ul class="mt-6 space-y-3">{p.points.map((pt) => <li class="flex gap-3 text-mut"><span class="text-signal">✓</span>{pt}</li>)}</ul>
+  <section class="container-x py-10">
+    <h2 class="text-2xl font-display font-semibold">Six operations domains, automated</h2>
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {opsDomains.map((d, i) => (
+        <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-6">
+          <div class="font-mono text-xs text-cyan">0{i + 1}</div>
+          <h3 class="mt-2 font-display text-lg font-semibold">{d.name}</h3>
+          <p class="mt-2 text-sm text-mut">{d.blurb}</p>
+        </div>
+      ))}
     </div>
-    <div>
-      <h2 class="text-2xl font-display font-semibold">Outcomes</h2>
-      <ul class="mt-6 space-y-3">{outcomes.map((o) => <li class="flex gap-3 text-mut"><span class="text-azure">→</span>{o}</li>)}</ul>
-    </div>
+    <p class="mt-6 text-sm text-mut">Want the mechanism behind this? See <a href="/how-we-automate" class="text-azure hover:brightness-110">how we automate operations →</a></p>
   </section>
-  <CtaBand />
+  <CtaBand title="Let's make your platform run itself." />
 </BaseLayout>
