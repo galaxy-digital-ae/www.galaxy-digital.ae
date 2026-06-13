@@ -4,14 +4,34 @@ import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
 import TeamCard from '../components/TeamCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Card from '../components/Card.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { team } from '../data/team';
+import { values } from '../data/values';
 ---
 <BaseLayout title="About" description="A senior-only team of cloud-native, AI and security practitioners based in the UAE.">
-  <PageHero eyebrow="Who we are" title="We live and breathe AI, cloud-native and OpenShift." lead="Galaxy-Digital is a UAE-based consultancy and MSP. We build sovereign private-cloud platforms and turn their operations autonomous. Senior-only — no juniors, no offshore handoff." />
+  <PageHero eyebrow="Who we are" title="We live and breathe AI, cloud-native and OpenShift." lead="Galaxy-Digital is a UAE-based consultancy and MSP. We build sovereign private-cloud platforms and turn their operations autonomous. Senior-only — no juniors, no offshore handoff. Built by former Red Hat OpenShift Solution Architects and Red Hat Certified Architects." />
   <Section texture="grid" class="py-10">
     <SectionHeading eyebrow="The team" title="Practitioners, not account managers." />
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">{team.map((m) => <TeamCard member={m} />)}</div>
+  </Section>
+  <Section texture="grid">
+    <SectionHeading eyebrow="Credentials" title="Certified to the architect level." sub="The certifications our engineers have earned — depth you can verify." />
+    <CardGrid cols={2} class="mt-10">
+      {team.filter((m) => m.certs && m.certs.length).map((m) => (
+        <Card title={m.name} variant="blueprint">
+          {m.headline && <span class="block text-xs text-cyan mb-3">{m.headline}</span>}
+          <ul class="space-y-1.5">{m.certs!.map((c) => <li class="flex gap-2 text-mut"><span class="text-signal">✓</span>{c}</li>)}</ul>
+        </Card>
+      ))}
+    </CardGrid>
+  </Section>
+  <Section>
+    <SectionHeading eyebrow="How we work" title="Our way of working." />
+    <CardGrid cols={3} class="mt-10">
+      {values.map((v) => <Card title={v.title} icon={v.icon}>{v.blurb}</Card>)}
+    </CardGrid>
   </Section>
   <CtaBand />
 </BaseLayout>
