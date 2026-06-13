@@ -7,5 +7,6 @@ const { member } = Astro.props;
   <img src={member.photo} alt={member.name} class="w-full aspect-square object-cover rounded-xl" />
   <h3 class="mt-4 font-display font-semibold">{member.name}</h3>
   <p class="text-sm text-cyan">{member.title}</p>
+  {member.headline && <p class="mt-1 text-xs text-mut">{member.headline}</p>}
   {member.linkedin && <a href={member.linkedin} class="mt-2 inline-block text-sm text-mut hover:text-txt">LinkedIn →</a>}
 </div>
