@@ -1,6 +1,6 @@
 # Marketing content & honesty rules
 
-Source of truth: `docs/superpowers/specs/2026-06-13-galaxy-digital-productization-content-design.md` and the typed data in `src/data/*.ts`. When writing copy, ground every claim in real delivered capability — presented **anonymously**.
+Source of truth: `docs/superpowers/specs/2026-06-13-galaxy-digital-productization-content-design.md` and the typed data in `src/data/*.ts`. When writing copy, ground every claim in real delivered capability. Two clients may now be **named** — GRN.CLOUD and Tesco (with Red Hat); every other client stays anonymous. See the naming rules below.
 
 ## The offering
 
@@ -40,14 +40,15 @@ The mechanism behind Agentic Operations — turning OpenShift GitOps into autono
 
 The loop: **Detect → Plan → Act → Verify**, within human-defined guardrails, with a signed audit trail.
 
-## The two anonymized case angles
+## The two named case studies
 
-- **Case 1 — "A European sovereign-cloud operator"** (the OpenShift reference). On-prem, multi-cluster OpenShift private cloud built entirely from Git — bare-metal provisioning, Service Mesh, Virtualization, Ceph storage and policy-as-code — operated by agents for provisioning, backup and Day-2 work. Capability stats only.
-- **Case 2 — "A Fortune-500 retailer"** (AIOps depth, **not** OpenShift). An enterprise-scale AIOps automation library for an internal developer platform: parallel incident triage, platform-health reporting, pipeline-failure investigation, chaos testing and automated postmortems. Framed strictly as AIOps automation depth. Carries an explicit anonymized note: a Kubernetes engagement shown as AIOps depth, not an OpenShift reference.
+- **GRN.CLOUD** — a sovereign Dutch Cloud Service Provider; our OpenShift + agentic-ops flagship. 600 bare-metal servers managed as code; a 100%-automated datacenter on GitOps + CI/CD + agentic AI (MCP tools & SOPs) with vLLM local model serving — operable by a single person. Authorized metrics: 600 servers · 100% automated · 1-person ops.
+- **Tesco — with Red Hat** — enterprise OpenShift at scale. 400+ HostedClusters across three sites managed with Red Hat ACM, plus agentic AIOps. Authorized metrics: 400+ HostedClusters · 3 sites · 2× faster CI/CD. Always frame as a **joint engagement with Red Hat consultancy**.
 
-## Honesty & anonymization rules (non-negotiable)
+## Honesty & naming rules (non-negotiable)
 
-- **No client names, logos, testimonials, or traceable specifics** until written consent is secured. Reference engagements only as "a European sovereign-cloud operator" / "a Fortune-500 retailer" (or similar). No names, logos, dates, cluster names, or numbers traceable to a client.
-- **No fabricated or unverified metrics.** Capability stats only (e.g. "100% GitOps-managed", "6 Day-2 ops domains"). A metric appears only if it is a generic capability stat we can stand behind.
-- **Never frame the enterprise-retail AKS work as OpenShift.** It is Azure/AKS — cite it only as *AIOps automation depth*, never as an OpenShift reference, never implied to be OpenShift.
+- **Nameable clients:** GRN.CLOUD and Tesco (Tesco always "with Red Hat") may be named with the framings above. Any OTHER client stays anonymous (no names/logos/traceable specifics) until written consent.
+- **Pedigree — use it, it's our edge:** Sam and Andrej are former Red Hat engineers; Sam was a Red Hat OpenShift Solution Architect (Red Hat's highest OpenShift role). We are a Red Hat Business Partner **via the Netherlands branch** (not UAE — say "via our NL branch"). Regional claim: "the sovereign OpenShift & AIOps specialist for the Middle East."
+- **No fabricated or unverified metrics.** Only the authorized client metrics above, plus generic capability stats (e.g. "100% GitOps-managed").
+- **Internal codename `hoolia` must never appear in published output** — it is the GRN.CLOUD engagement's repo name, not the client's public name.
 - Every named OpenShift component (ACM, ODF, RHOAI, Service Mesh, GitOps, Virtualization, Kyverno, etc.) must map to capability we have actually deployed.
