@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { audience, whatWeBuild, hosting } from '../data/customBuild';
+---
+<BaseLayout title="Custom Build" description="We build your sovereign OpenShift private cloud and autonomous operations as a custom implementation.">
+  <section class="container-x pt-20 pb-10">
+    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Custom Build</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">Your sovereign OpenShift platform — custom-built.</h1>
+    <p class="mt-6 text-lg text-mut max-w-2xl">We build the platform, automate its operations, and hand you a sovereign private cloud that runs itself. Consultancy first — you own what we build.</p>
+  </section>
+
+  <section class="container-x py-10">
+    <SectionHeading eyebrow="Who it's for" title="Built for platform-serious organisations." />
+    <ul class="mt-8 grid md:grid-cols-3 gap-4">
+      {audience.map((a) => <li class="rounded-2xl bg-panel hairline p-6 text-sm text-mut">{a}</li>)}
+    </ul>
+  </section>
+
+  <section class="container-x py-10">
+    <SectionHeading eyebrow="What we build" title="Three layers, one platform." />
+    <div class="mt-8 grid md:grid-cols-3 gap-4">
+      {whatWeBuild.map((b, i) => (
+        <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-6">
+          <div class="font-mono text-xs text-cyan">0{i + 1}</div>
+          <h3 class="mt-2 font-display text-lg font-semibold">{b.title}</h3>
+          <p class="mt-2 text-sm text-mut">{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-x py-10">
+    <SectionHeading eyebrow="How we engage" title="Assess → Architect → Automate → Operate." sub="A clear path from today to autonomous — each stage produces working software you own." />
+    <p class="mt-6 text-sm text-mut"><a href="/approach" class="text-azure hover:brightness-110">See the full engagement model →</a></p>
+  </section>
+
+  <section class="container-x py-10">
+    <div class="rounded-2xl hairline p-7 bg-panel">
+      <h2 class="font-display text-xl font-semibold">Managed hosting — the add-on</h2>
+      <p class="mt-3 text-mut max-w-2xl">{hosting}</p>
+    </div>
+  </section>
+
+  <CtaBand title="Let's design your custom build." />
+</BaseLayout>
