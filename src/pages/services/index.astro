@@ -1,18 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
 import PillarCard from '../../components/PillarCard.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
+const lead = `We build sovereign OpenShift private clouds and run them autonomously. Build the platform, automate its Day-2 operations, transform your teams with AI, and keep it secure by default.`;
 ---
 <BaseLayout title="Services" description="Platform Engineering, Agentic Operations, AI Transformation and Security — for AI-native enterprises.">
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Services</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">Four pillars. One sovereign platform.</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">We build sovereign OpenShift private clouds and run them autonomously. Build the platform, automate its Day-2 operations, transform your teams with AI, and keep it secure by default. <a href="/custom-build" class="text-azure hover:brightness-110">See how it comes together as a custom build →</a></p>
-  </section>
-  <section class="container-x py-10">
+  <PageHero eyebrow="Services" title="Four pillars. One sovereign platform." lead={lead}>
+    <p class="mt-4 text-lg text-mut max-w-2xl"><a href="/custom-build" class="text-azure hover:brightness-110">See how it comes together as a custom build →</a></p>
+  </PageHero>
+  <Section class="py-10">
     <div class="grid md:grid-cols-2 gap-5">{pillars.map((p) => <PillarCard pillar={p} />)}</div>
-  </section>
+  </Section>
   <CtaBand />
 </BaseLayout>

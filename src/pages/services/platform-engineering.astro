@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import FeatureList from '../../components/FeatureList.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
 const slug = 'platform-engineering';
@@ -13,31 +18,20 @@ const stack: { group: string; items: string }[] = [
 const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">{p.marketing}</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">{p.name}</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">{intro}</p>
-  </section>
-  <section class="container-x py-10 grid md:grid-cols-2 gap-10">
-    <div>
-      <h2 class="text-2xl font-display font-semibold">What you get</h2>
-      <ul class="mt-6 space-y-3">{p.points.map((pt) => <li class="flex gap-3 text-mut"><span class="text-signal">✓</span>{pt}</li>)}</ul>
+  <PageHero eyebrow={p.marketing} title={p.name} lead={intro} />
+  <Section class="py-10">
+    <div class="grid md:grid-cols-2 gap-10">
+      <FeatureList title="What you get" items={p.points} marker="check" />
+      <FeatureList title="Outcomes" items={outcomes} marker="arrow" />
     </div>
-    <div>
-      <h2 class="text-2xl font-display font-semibold">Outcomes</h2>
-      <ul class="mt-6 space-y-3">{outcomes.map((o) => <li class="flex gap-3 text-mut"><span class="text-azure">→</span>{o}</li>)}</ul>
-    </div>
-  </section>
-  <section class="container-x py-10">
+  </Section>
+  <Section texture="glow" class="py-10">
     <h2 class="text-2xl font-display font-semibold">The platform stack we build</h2>
-    <div class="mt-6 grid md:grid-cols-3 gap-4">
+    <CardGrid cols={3} class="mt-6">
       {stack.map((s) => (
-        <div class="rounded-2xl bg-panel hairline p-6">
-          <div class="text-xs uppercase tracking-[0.14em] text-cyan font-semibold">{s.group}</div>
-          <p class="mt-2 text-sm text-mut">{s.items}</p>
-        </div>
+        <Card title={s.group}>{s.items}</Card>
       ))}
-    </div>
-  </section>
+    </CardGrid>
+  </Section>
   <CtaBand />
 </BaseLayout>
