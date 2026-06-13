@@ -1,5 +1,5 @@
 ---
-import { site, nav, socials } from '../data/site';
+import { site, nav, socials, footerMore } from '../data/site';
 import { pillars } from '../data/pillars';
 ---
 <footer class="border-t border-line mt-24">
@@ -17,7 +17,7 @@ import { pillars } from '../data/pillars';
     </div>
     <div>
       <h3 class="text-xs uppercase tracking-wider text-mut font-semibold">Company</h3>
-      <ul class="mt-4 space-y-2">{nav.map((i) => <li><a class="text-sm text-mut hover:text-txt" href={i.href}>{i.label}</a></li>)}<li><a class="text-sm text-mut hover:text-txt" href="/legal">Legal</a></li></ul>
+      <ul class="mt-4 space-y-2">{nav.map((i) => <li><a class="text-sm text-mut hover:text-txt" href={i.href}>{i.label}</a></li>)}{footerMore.map((i) => <li><a class="text-sm text-mut hover:text-txt" href={i.href}>{i.label}</a></li>)}<li><a class="text-sm text-mut hover:text-txt" href="/legal">Legal</a></li></ul>
     </div>
     <div>
       <h3 class="text-xs uppercase tracking-wider text-mut font-semibold">Contact</h3>
