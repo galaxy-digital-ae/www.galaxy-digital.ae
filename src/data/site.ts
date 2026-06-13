@@ -21,4 +21,4 @@ export const footerMore = [
   { label: 'How We Automate', href: '/how-we-automate' },
   { label: 'Case Studies', href: '/case-studies' },
 ];
-export const socials = [{ label: 'LinkedIn', href: 'https://www.linkedin.com/company/galaxy-digital-ae' }];
+export const socials = [{ label: 'LinkedIn', href: 'https://www.linkedin.com/company/galaxy-digital-fzllc/' }];
