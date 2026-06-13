@@ -1,14 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { site, socials, messageSam } from '../data/site';
 ---
 <BaseLayout title="Contact" description="Book a platform review with Galaxy-Digital.">
-  <section class="container-x pt-20 pb-10 grid lg:grid-cols-2 gap-12">
+  <PageHero eyebrow="Contact" title="Book a platform review." lead="Tell us where you are and where you want to get to. We'll come back with a concrete next step." />
+  <section class="container-x py-10 grid lg:grid-cols-2 gap-12">
     <div>
-      <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Contact</span>
-      <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight">Book a platform review.</h1>
-      <p class="mt-6 text-lg text-mut max-w-md">Tell us where you are and where you want to get to. We'll come back with a concrete next step.</p>
-      <div class="mt-8 space-y-2 text-mut">
+      <div class="space-y-2 text-mut">
         <p>{site.location}</p>
         <p><a class="text-azure hover:brightness-110" href={`mailto:${site.email}`}>{site.email}</a></p>
         <p><a class="hover:text-txt" href={site.phoneHref}>{site.phone}</a></p>

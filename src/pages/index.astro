@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
+import Section from '../components/Section.astro';
 import TechStrip from '../components/TechStrip.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import PillarCard from '../components/PillarCard.astro';
@@ -20,16 +21,16 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 <BaseLayout>
   <Hero />
   <TechStrip />
-  <section class="container-x py-20">
+  <Section texture="grid" class="py-20">
     <SectionHeading eyebrow="What we do" title="Four pillars, one substrate." sub="Cloud-native and OpenShift run through everything — these are the outcomes we deliver on top." />
     <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
       {pillars.map((p) => <PillarCard pillar={p} />)}
     </div>
-  </section>
+  </Section>
   <Differentiator />
   <PlatformSection />
   <Engage />
-  <section class="container-x py-20">
+  <Section class="py-20">
     <div class="rounded-3xl hairline p-10 md:p-14 bg-linear-to-b from-panel to-bg2 shadow-glow grid lg:grid-cols-2 gap-10 items-center">
       <div>
         <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Custom Build</span>
@@ -41,21 +42,21 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
         {opsDomains.slice(0, 6).map((d) => <div class="rounded-xl bg-space hairline p-4 text-sm"><span class="text-cyan">▸</span> {d.name}</div>)}
       </div>
     </div>
-  </section>
-  <section class="container-x py-20">
+  </Section>
+  <Section class="py-20">
     <SectionHeading center title="Built to prove it." sub="No vanity client counts — capability you can verify." />
     <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5">{metrics.map((m) => <MetricStat value={m.value} label={m.label} />)}</div>
-  </section>
-  <section class="container-x py-20">
+  </Section>
+  <Section class="py-20">
     <SectionHeading eyebrow="Who we are" title="Senior-only. No offshore handoff." sub="A small team of practitioners who live and breathe this stack." />
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">{team.map((m) => <TeamCard member={m} />)}</div>
-  </section>
-  <section class="container-x py-20">
+  </Section>
+  <Section class="py-20">
     <div class="flex items-end justify-between flex-wrap gap-4">
       <SectionHeading eyebrow="Proof" title="Work we've delivered." />
       <a href="/case-studies" class="text-sm text-azure font-semibold hover:brightness-110">All case studies →</a>
     </div>
     <div class="mt-10 grid md:grid-cols-2 gap-5">{caseStudies.map((s) => <CaseStudyCard study={s} />)}</div>
-  </section>
+  </Section>
   <CtaBand />
 </BaseLayout>

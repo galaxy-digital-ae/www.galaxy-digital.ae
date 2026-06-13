@@ -1,19 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
 import TeamCard from '../components/TeamCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { team } from '../data/team';
 ---
 <BaseLayout title="About" description="A senior-only team of cloud-native, AI and security practitioners based in the UAE.">
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Who we are</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">We live and breathe AI, cloud-native and OpenShift.</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">Galaxy-Digital is a UAE-based consultancy and MSP. We build sovereign private-cloud platforms and turn their operations autonomous. Senior-only — no juniors, no offshore handoff.</p>
-  </section>
-  <section class="container-x py-10">
+  <PageHero eyebrow="Who we are" title="We live and breathe AI, cloud-native and OpenShift." lead="Galaxy-Digital is a UAE-based consultancy and MSP. We build sovereign private-cloud platforms and turn their operations autonomous. Senior-only — no juniors, no offshore handoff." />
+  <Section texture="grid" class="py-10">
     <SectionHeading eyebrow="The team" title="Practitioners, not account managers." />
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">{team.map((m) => <TeamCard member={m} />)}</div>
-  </section>
+  </Section>
   <CtaBand />
 </BaseLayout>

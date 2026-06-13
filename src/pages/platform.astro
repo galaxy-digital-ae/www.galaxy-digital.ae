@@ -1,20 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
 import Constellation from '../components/Constellation.astro';
 import RegionMap from '../components/RegionMap.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CtaBand from '../components/CtaBand.astro';
 ---
 <BaseLayout title="Platform" description="Sovereign private-cloud OpenShift, hosted across the Middle East, Africa and Europe.">
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Sovereign Private Cloud</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">The platform behind AI-native enterprises.</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">One OpenShift core, every capability orbiting it — built as code, operated by agents, and hosted in your region for data residency and control.</p>
-  </section>
-  <section class="container-x py-10"><Constellation /></section>
-  <section class="container-x py-16">
+  <PageHero eyebrow="Sovereign Private Cloud" title="The platform behind AI-native enterprises." lead="One OpenShift core, every capability orbiting it — built as code, operated by agents, and hosted in your region for data residency and control." />
+  <Section class="py-10"><Constellation /></Section>
+  <Section texture="grid" class="py-16">
     <SectionHeading eyebrow="Where we run" title="In-region by design." sub="Middle East, Africa and Europe — your data stays where it must." />
     <div class="mt-10"><RegionMap /></div>
-  </section>
+  </Section>
   <CtaBand />
 </BaseLayout>

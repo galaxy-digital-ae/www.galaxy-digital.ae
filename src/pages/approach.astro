@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
 import CtaBand from '../components/CtaBand.astro';
 const steps = [
   { k: 'Assess', d: 'We map your current platform, delivery workflows, risks and goals — and agree what "good" looks like.' },
@@ -9,18 +11,14 @@ const steps = [
 ];
 ---
 <BaseLayout title="Approach" description="Assess → Architect → Automate → Operate. A clear path from today to autonomous.">
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">How we engage</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">A clear path from today to autonomous.</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">Four stages, each producing working software you own. No big-bang — we earn autonomy step by step.</p>
-  </section>
-  <section class="container-x py-10 space-y-4">
+  <PageHero eyebrow="How we engage" title="A clear path from today to autonomous." lead="Four stages, each producing working software you own. No big-bang — we earn autonomy step by step." />
+  <Section texture="glow" class="py-10 space-y-4">
     {steps.map((s, i) => (
       <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-7 flex gap-6 items-start">
         <div class="font-display text-2xl font-semibold text-grad">0{i + 1}</div>
         <div><h3 class="font-display text-xl font-semibold">{s.k}</h3><p class="mt-2 text-mut">{s.d}</p></div>
       </div>
     ))}
-  </section>
+  </Section>
   <CtaBand />
 </BaseLayout>
