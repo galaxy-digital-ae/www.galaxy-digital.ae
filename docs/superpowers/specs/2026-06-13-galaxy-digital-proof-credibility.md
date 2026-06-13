@@ -47,10 +47,10 @@ List each engineer's Red Hat certs explicitly — the long list signals depth. *
 
 - **Sam — RHCA (Cloud, Level 6); former Red Hat OpenShift Solution Architect.** Certs: Red Hat Certified Architect (RHCA Cloud, Level 6), RHCE, RHCSA, Red Hat Certified Virtualization Administrator, Red Hat Certified Administrator in OpenStack, Certificate of Expertise in PaaS (Docker Containers), Certificate of Expertise in Configuration Management (Puppet, EX405), Red Hat Certified JBoss Administrator (EAP6).
 - **Andrej — RHCA Level III; ex-Red Hat.** Certs: Red Hat Certified Architect (Level III), Red Hat Certified Specialist in OpenShift Administration, Red Hat Certified Virtualization Administrator (EX318), Certificate of Expertise in Clustering & Storage Management (EX436), Certificate of Expertise in Hybrid Cloud Storage (EX236), Red Hat Certified System Administrator in OpenStack, Certificate of Expertise in Server Hardening (EX413), Certificate of Expertise in Deployment & Systems Management (EX401), RHCE, RHCSA.
-- **Mayank — _pending_.** Cert list to be provided by the user (LinkedIn blocked scraping). Build the slot; fill on receipt.
-- **Amit — _pending_.** Same.
+- **Mayank — CKA + RHCE.** Certs: Certified Kubernetes Administrator (CNCF), Red Hat Certified Engineer (RHCE 6 & 7), Red Hat Certified Engineer in Red Hat OpenStack, Red Hat Certified System Administrator (RHCSA 6 & 7), AWS Certified Solutions Architect – Associate.
+- **Amit — AI & Data Science specialist (lead with AI, not Red Hat — he holds none).** Headline: *MSc Data Science & Artificial Intelligence (Distinction), University of Liverpool* — dissertation: Financial NLP using LLMs. Credentials: Certified Kubernetes Administrator (Linux Foundation, CKA), AWS Certified Solutions Architect – Associate, Building Applications Using Amazon Bedrock, MLflow. His card reinforces our AI-native positioning and the AI Transformation pillar.
 
-Store certs in data: extend `src/data/team.ts` with an optional `certs?: string[]` and `redhatRole?: string` (e.g. Sam's "Former Red Hat OpenShift Solution Architect").
+Store credentials in data: extend `src/data/team.ts` with `headline?: string` (Sam: "Former Red Hat OpenShift Solution Architect"; Amit: his MSc line) and `certs?: string[]`. Per person, the card leads with `headline` then lists `certs`.
 
 ### 3c. Homepage metrics (replace placeholders with real, authorized numbers)
 Update `src/data/metrics.ts` to feature: **600** bare-metal servers automated · **400+** HostedClusters via ACM · **2×** faster CI/CD · **100%** GitOps-managed. (Keep "sovereign / MEA·EU" framing.)
@@ -86,7 +86,7 @@ A **"How We Work"** values block built on the tenets:
 
 ## 7. Dependencies & out of scope
 
-- **Dependency:** Mayank & Amit cert lists (user to paste). Until then their cert slots stay empty/omitted — nothing invented.
+- All four engineers' credentials are now supplied (real). No outstanding data dependencies.
 - **Out of scope:** careers page, blog/insights, new engagement models, client logos.
 
 ---
