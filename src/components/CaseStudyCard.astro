@@ -11,5 +11,12 @@ const { study } = Astro.props;
     <p><span class="text-mut">What we built — </span>{study.built}</p>
     <p><span class="text-azure">Outcome — </span>{study.outcome}</p>
   </div>
+  {study.metrics && (
+    <div class="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+      {study.metrics.map((m) => (
+        <div><span class="font-display text-xl font-semibold text-grad">{m.value}</span> <span class="text-xs text-mut">{m.label}</span></div>
+      ))}
+    </div>
+  )}
   {study.note && <p class="mt-5 text-xs text-mut italic">{study.note}</p>}
 </article>
