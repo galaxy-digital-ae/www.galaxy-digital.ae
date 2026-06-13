@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { caseStudies } from '../data/caseStudies';
+---
+<BaseLayout title="Case Studies" description="Anonymized engagements: sovereign OpenShift private cloud and enterprise-scale AIOps automation.">
+  <section class="container-x pt-20 pb-10">
+    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Case studies</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">Work we've delivered.</h1>
+    <p class="mt-6 text-lg text-mut max-w-2xl">Two engagements, told without the names. Details are anonymized to protect our clients; we'll share specifics under NDA.</p>
+  </section>
+  <section class="container-x py-10 grid md:grid-cols-2 gap-5">
+    {caseStudies.map((s) => <CaseStudyCard study={s} />)}
+  </section>
+  <CtaBand />
+</BaseLayout>
