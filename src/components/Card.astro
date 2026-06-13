@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from './icons';
+interface Props { title: string; icon?: IconName; index?: string; variant?: 'panel' | 'blueprint'; }
+const { title, icon, index, variant = 'panel' } = Astro.props;
+const surface = variant === 'blueprint'
+  ? 'gd-blueprint border border-dashed border-cyan/30 bg-[rgba(8,12,22,0.7)]'
+  : 'bg-linear-to-b from-panel to-bg2 hairline';
+---
+<div class={`relative rounded-2xl p-6 ${surface}`}>
+  {(icon || index) && (
+    <div class="flex items-center justify-between">
+      {icon && <span class="w-10 h-10 rounded-[10px] border border-cyan/40 flex items-center justify-center text-cyan"><Icon name={icon} /></span>}
+      {index && <span class="font-mono text-xs text-cyan">{index}</span>}
+    </div>
+  )}
+  <h3 class="mt-3 font-display text-lg font-semibold">{title}</h3>
+  <div class="mt-2 text-sm text-mut"><slot /></div>
+</div>
