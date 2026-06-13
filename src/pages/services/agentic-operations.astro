@@ -1,30 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
 import { opsDomains } from '../../data/opsDomains';
-const slug = 'agentic-operations';
+const p = pillars.find((x) => x.slug === 'agentic-operations')!;
 const intro = `The routine Day-2 operations that consume a platform team — run as autonomous agentic workflows. Humans set intent and own the guardrails; agents detect, plan, act and verify.`;
-const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
-  <section class="container-x pt-20 pb-10">
-    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">{p.marketing}</span>
-    <h1 class="mt-4 text-4xl md:text-5xl font-display font-semibold tracking-tight max-w-3xl">{p.name}</h1>
-    <p class="mt-6 text-lg text-mut max-w-2xl">{intro}</p>
-  </section>
-  <section class="container-x py-10">
+  <PageHero eyebrow={p.marketing} title={p.name} lead={intro} />
+  <Section texture="grid">
     <h2 class="text-2xl font-display font-semibold">Six operations domains, automated</h2>
-    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <CardGrid cols={3} class="mt-6">
       {opsDomains.map((d, i) => (
-        <div class="rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-6">
-          <div class="font-mono text-xs text-cyan">0{i + 1}</div>
-          <h3 class="mt-2 font-display text-lg font-semibold">{d.name}</h3>
-          <p class="mt-2 text-sm text-mut">{d.blurb}</p>
-        </div>
+        <Card title={d.name} icon={d.icon} index={`0${i + 1}`} variant="blueprint">{d.blurb}</Card>
       ))}
-    </div>
+    </CardGrid>
     <p class="mt-6 text-sm text-mut">Want the mechanism behind this? See <a href="/how-we-automate" class="text-azure hover:brightness-110">how we automate operations →</a></p>
-  </section>
+  </Section>
   <CtaBand title="Let's make your platform run itself." />
 </BaseLayout>
