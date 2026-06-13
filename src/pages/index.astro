@@ -13,6 +13,9 @@ import CtaBand from '../components/CtaBand.astro';
 import { pillars } from '../data/pillars';
 import { metrics } from '../data/metrics';
 import { team } from '../data/team';
+import { opsDomains } from '../data/opsDomains';
+import { caseStudies } from '../data/caseStudies';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
 ---
 <BaseLayout>
   <Hero />
@@ -27,12 +30,32 @@ import { team } from '../data/team';
   <PlatformSection />
   <Engage />
   <section class="container-x py-20">
+    <div class="rounded-3xl hairline p-10 md:p-14 bg-linear-to-b from-panel to-bg2 shadow-glow grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Custom Build</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold tracking-tight">We build it. It runs itself. You own it.</h2>
+        <p class="mt-4 text-mut">A sovereign OpenShift private cloud, its Day-2 operations automated, delivered as a custom implementation. Hosting with us is an optional add-on.</p>
+        <a href="/custom-build" class="mt-6 inline-block text-azure font-semibold hover:brightness-110">Explore Custom Build →</a>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        {opsDomains.slice(0, 6).map((d) => <div class="rounded-xl bg-space hairline p-4 text-sm"><span class="text-cyan">▸</span> {d.name}</div>)}
+      </div>
+    </div>
+  </section>
+  <section class="container-x py-20">
     <SectionHeading center title="Built to prove it." sub="No vanity client counts — capability you can verify." />
     <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5">{metrics.map((m) => <MetricStat value={m.value} label={m.label} />)}</div>
   </section>
   <section class="container-x py-20">
     <SectionHeading eyebrow="Who we are" title="Senior-only. No offshore handoff." sub="A small team of practitioners who live and breathe this stack." />
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">{team.map((m) => <TeamCard member={m} />)}</div>
+  </section>
+  <section class="container-x py-20">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <SectionHeading eyebrow="Proof" title="Work we've delivered." />
+      <a href="/case-studies" class="text-sm text-azure font-semibold hover:brightness-110">All case studies →</a>
+    </div>
+    <div class="mt-10 grid md:grid-cols-2 gap-5">{caseStudies.map((s) => <CaseStudyCard study={s} />)}</div>
   </section>
   <CtaBand />
 </BaseLayout>
