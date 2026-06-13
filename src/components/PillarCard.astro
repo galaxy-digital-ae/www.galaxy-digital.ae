@@ -1,10 +1,12 @@
 ---
 import type { Pillar } from '../data/pillars';
+import Icon from './Icon.astro';
 interface Props { pillar: Pillar; }
 const { pillar } = Astro.props;
 ---
 <a href={`/services/${pillar.slug}`} class="group block rounded-2xl bg-linear-to-b from-panel to-bg2 hairline p-6 hover:border-azure/50 transition">
-  <span class="text-xs font-semibold uppercase tracking-[0.14em] text-cyan">{pillar.marketing}</span>
+  <span class="w-10 h-10 rounded-[10px] border border-cyan/40 flex items-center justify-center text-cyan"><Icon name={pillar.icon} /></span>
+  <span class="mt-4 block text-xs font-semibold uppercase tracking-[0.14em] text-cyan">{pillar.marketing}</span>
   <h3 class="mt-2 text-xl font-display font-semibold">{pillar.name}</h3>
   <p class="mt-3 text-sm text-mut">{pillar.blurb}</p>
   <span class="mt-4 inline-block text-sm text-azure group-hover:translate-x-1 transition">Learn more →</span>
