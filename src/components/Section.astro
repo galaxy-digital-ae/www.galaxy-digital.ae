@@ -1,0 +1,10 @@
+---
+interface Props { texture?: 'none' | 'grid' | 'glow' | 'grid-glow'; class?: string; }
+const { texture = 'none', class: cls = 'py-20' } = Astro.props;
+const tex = texture === 'grid' ? 'tex-grid'
+  : texture === 'glow' ? 'tex-glow'
+  : texture === 'grid-glow' ? 'tex-grid tex-glow' : '';
+---
+<section class={`relative ${tex}`}>
+  <div class={`container-x relative z-10 ${cls}`}><slot /></div>
+</section>
