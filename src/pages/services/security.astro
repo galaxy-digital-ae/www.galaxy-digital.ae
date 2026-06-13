@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
 const slug = 'security';
-const intro = `Security is the default, not a phase. We audit your posture, harden the platform, and run Security Operations so issues are caught and contained — sovereign by design.`;
-const outcomes: string[] = ['Independent posture review', 'Continuous SecOps monitoring', 'Compliance-ready evidence'];
+const intro = `Security as the default, not a phase. We enforce policy-as-code, manage secrets and identity, and run Security Operations so issues are caught and contained — sovereign by design.`;
+const outcomes: string[] = ['Guardrails enforced automatically, not by review', 'Secrets and certificates managed and rotated', 'Continuous SecOps, compliance-ready'];
 const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
