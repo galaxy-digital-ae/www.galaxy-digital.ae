@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { pillars } from '../../data/pillars';
 const slug = 'ai-transformation';
-const intro = `We take AI initiatives end-to-end: aligning stakeholders, designing the solution, implementing it on a governed platform, and putting the guardrails in place to run it responsibly.`;
-const outcomes: string[] = ['From idea to governed production', 'Clear stakeholder alignment', 'Responsible-AI guardrails built in'];
+const intro = `AI adoption where the work actually happens — your application and DevOps teams. We run enablement, automate delivery processes, and build governed autonomous agents for your business workflows.`;
+const outcomes: string[] = ['Teams that can build and run AI themselves', 'DevOps processes automated at the workload layer', 'Autonomous agents that stay inside policy'];
 const p = pillars.find((x) => x.slug === slug)!;
 ---
 <BaseLayout title={p.name} description={p.blurb}>
@@ -15,7 +15,7 @@ const p = pillars.find((x) => x.slug === slug)!;
   </section>
   <section class="container-x py-10 grid md:grid-cols-2 gap-10">
     <div>
-      <h2 class="text-2xl font-display font-semibold">What you get</h2>
+      <h2 class="text-2xl font-display font-semibold">What we do</h2>
       <ul class="mt-6 space-y-3">{p.points.map((pt) => <li class="flex gap-3 text-mut"><span class="text-signal">✓</span>{pt}</li>)}</ul>
     </div>
     <div>
