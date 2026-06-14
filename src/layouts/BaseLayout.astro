@@ -26,8 +26,15 @@ const orgLd = {
   description: site.tagline,
   email: site.email,
   telephone: site.phone,
+  priceRange: '$$$',
   areaServed: ['AE', 'Middle East', 'Africa', 'Europe'],
-  address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: site.location },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'FOAM0928, Compass Building, Al Shohada Road, Al Hamra Industrial Zone-FZ',
+    addressLocality: 'Ras Al Khaimah',
+    addressRegion: 'Ras Al Khaimah',
+    addressCountry: 'AE',
+  },
   sameAs: socials.map((s) => s.href),
   knowsAbout: [
     'Red Hat OpenShift',
