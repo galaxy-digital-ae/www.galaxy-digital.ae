@@ -1,0 +1,29 @@
+# Galaxy-Digital
+
+> A UAE-based, consultancy-first cloud-native MSP. We build sovereign Red Hat OpenShift private clouds, automate their Day-2 operations with agentic AIOps, and transform how teams work — AI-native by design. Senior-only delivery (Red Hat Certified Architects and ex-Red Hat engineers); no offshore handoff.
+
+Tagline: Sovereign private cloud. Autonomous operations. AI-native by design.
+Based in: United Arab Emirates. Serves: Middle East, Africa, Europe.
+Contact: hello@galaxy-digital.ae · +971 50 771 0305
+
+## What we do
+
+Four pillars on one cloud-native substrate:
+- Platform Engineering — sovereign OpenShift private cloud, GitOps, golden paths.
+- Agentic Operations — autonomous Day-2 operations across six ops domains, with human-set intent and guardrails.
+- AI Transformation — people and process change so teams work AI-natively.
+- Security — secure-by-default platform and workloads.
+
+Hosting is an optional add-on; the engagement is consultancy and custom implementation first.
+
+## Pages
+
+- [Home](https://www.galaxy-digital.ae/): Overview of the four pillars and proof of capability.
+- [Custom Build](https://www.galaxy-digital.ae/custom-build): We build your sovereign OpenShift private cloud and autonomous operations as a custom implementation you own.
+- [Services](https://www.galaxy-digital.ae/services): Platform Engineering, Agentic Operations, AI Transformation and Security.
+- [Platform](https://www.galaxy-digital.ae/platform): Sovereign private-cloud OpenShift, hosted across the Middle East, Africa and Europe.
+- [Approach](https://www.galaxy-digital.ae/approach): Assess → Architect → Automate → Operate.
+- [How We Automate](https://www.galaxy-digital.ae/how-we-automate): Turning OpenShift GitOps into autonomous operations — SOPs, skills, sub-agents, guardrails, MCP gateway.
+- [Case Studies](https://www.galaxy-digital.ae/case-studies): Anonymized engagements in sovereign OpenShift and enterprise-scale AIOps.
+- [About / Team](https://www.galaxy-digital.ae/about): A senior-only team of cloud-native, AI and security practitioners.
+- [Contact](https://www.galaxy-digital.ae/contact): Book a platform review.
