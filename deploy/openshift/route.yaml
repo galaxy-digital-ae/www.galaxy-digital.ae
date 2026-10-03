@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: www
-  namespace: galaxy-digital-web
+  namespace: galaxydigital-www
   labels:
     app: galaxy-digital
   annotations:
