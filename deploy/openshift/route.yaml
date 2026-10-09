@@ -10,6 +10,7 @@ metadata:
     cert-manager.io/issuer-kind: ClusterIssuer
     cert-manager.io/issuer-name: letsencrypt
     cert-manager.io/renew-before: 24h
+    external-dns.kubernetes.io/hostname: www.galaxy-digital.ae
 spec:
   host: www.galaxy-digital.ae
   to:
