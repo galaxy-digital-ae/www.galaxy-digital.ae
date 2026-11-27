@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: galaxy-digital
-  namespace: galaxy-digital-web
+  namespace: galaxydigital-www
   labels:
     app: galaxy-digital
 spec:

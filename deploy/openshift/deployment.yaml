@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: galaxy-digital
-  namespace: galaxy-digital-web
+  namespace: galaxydigital-www
   labels:
     app: galaxy-digital
   annotations:
     # Roll the deployment automatically whenever galaxy-digital:latest is rebuilt.
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"galaxy-digital:latest","namespace":"galaxy-digital-web"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web\")].image"}]
+      [{"from":{"kind":"ImageStreamTag","name":"galaxy-digital:latest","namespace":"galaxydigital-www"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web\")].image"}]
 spec:
   replicas: 2
   selector:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: image-registry.openshift-image-registry.svc:5000/galaxy-digital-web/galaxy-digital:latest
+          image: image-registry.openshift-image-registry.svc:5000/galaxydigital-www/galaxy-digital:latest
           ports:
             - containerPort: 8080
           readinessProbe:
